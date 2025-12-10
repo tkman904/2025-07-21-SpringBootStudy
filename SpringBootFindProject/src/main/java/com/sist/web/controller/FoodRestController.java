@@ -66,13 +66,5 @@ public class FoodRestController {
 		map.put("address", address);
 		
 		return map; // 자동으로 JSON 변경 => jackson
-	}
-	
-	@GetMapping("/food/detail_vue/")
-	public FoodVO food_detail_vue(@RequestParam("fno") int fno) {
-		FoodVO vo = fService.foodDetailData(fno);
-		return vo;
-	}
-	
-	
+	}	
 }
