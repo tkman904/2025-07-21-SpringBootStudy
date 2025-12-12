@@ -25,4 +25,17 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return mapper.boardTotalPage();
 	}
+
+	@Override
+	public BoardVO boardDetail(int no) {
+		// TODO Auto-generated method stub
+		mapper.hitIncrement(no);
+		return mapper.boardDetail(no);
+	}
+
+	@Override
+	public void boardInsert(BoardVO vo) {
+		// TODO Auto-generated method stub
+		mapper.boardInsert(vo);
+	}
 }
