@@ -9,4 +9,7 @@ public interface BoardService {
 	public int boardTotalPage();
 	public BoardVO boardDetail(int no);
 	public void boardInsert(BoardVO vo);
+	public BoardVO boardUpdateData(int no);
+	public boolean boardUpdate(BoardVO vo);
+	public boolean boardDelete(int no, String pwd);
 }
