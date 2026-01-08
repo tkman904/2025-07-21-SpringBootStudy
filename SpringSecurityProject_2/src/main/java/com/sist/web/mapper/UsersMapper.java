@@ -21,10 +21,13 @@ public interface UsersMapper {
 	@Insert("INSERT INTO users_1(username, password) VALUES(#{username}, #{password})")
 	public void usersInsert(UsersVO vo);
 	
+	@Insert("INSERT INTO user_roles(user_id, role_name) VALUES(#{user_id}, #{role_name})")
+	public void userRolesInsert(UserRolesVO vo);
+	
 	@Select("SELECT * FROM users_1 WHERE username = #{username}")
 	public UsersVO findByUsername(String username);
 	
-	@Select("SELECT role_name FROM user_role WHERE user_id = #{userId}")
+	@Select("SELECT role_name FROM user_roles WHERE user_id = #{userId}")
 	public List<String> findRolesByUserId(int userId);
 	
 	// 로그인 ...
