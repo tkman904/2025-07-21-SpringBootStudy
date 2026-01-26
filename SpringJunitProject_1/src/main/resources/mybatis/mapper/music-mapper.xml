@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.web.mapper.MusicMapper">
+<!-- 
+	페이지 나누기
+	OFFSET : Limit 시작, 갯수
+	
+	NVL : ifnull
+	TO_CHAR : datetime.format
+	
+	= mysql = mariadb
+	= LIKE '%'||#{}||'%'
+	  ================== LIKE CONCAT('%',#{},'%')
+ -->
+	<select id="musicListData" resultType="com.sist.web.vo.MusicVO">
+		SELECT no, cno, title, singer, album, poster, state, idcrement 
+		FROM genie_music
+		ORDER BY no ASC
+		LIMIT #{start}, 20
+	</select>
+	
+	<select id="musicTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/20.0) FROM genie_music
+	</select>
+	
+	<select id="musicGetTitle" resultType="string">
+		SELECT title FROM genie_music 
+		WHERE no = #{no}
+	</select>
+</mapper>
