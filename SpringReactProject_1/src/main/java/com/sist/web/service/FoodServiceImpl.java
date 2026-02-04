@@ -2,6 +2,8 @@ package com.sist.web.service;
 
 import org.springframework.stereotype.Service;
 import java.util.*;
+
+import com.sist.web.entity.FoodEntity;
 import com.sist.web.repository.*;
 import com.sist.web.vo.*;
 
@@ -21,5 +23,11 @@ public class FoodServiceImpl implements FoodService{
 	public int foodTotalPage() {
 		// TODO Auto-generated method stub
 		return (int)(Math.ceil(foodRepo.count()/12.0));
+	}
+
+	@Override
+	public FoodEntity findByFno(int fno) {
+		// TODO Auto-generated method stub
+		return foodRepo.findByFno(fno);
 	}
 }

@@ -43,9 +43,22 @@ public class FoodRestController {
 			map.put("startPage", startPage);
 			map.put("endPage", endPage);
 		}catch(Exception ex) {
+			ex.printStackTrace();
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
-
+	
+	@GetMapping("/food/detail_react/{fno}")
+	public ResponseEntity<FoodEntity> food_detail_react(@PathVariable("fno") int fno) {
+		FoodEntity vo = new FoodEntity();
+		
+		try {
+			vo = fService.findByFno(fno);
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(vo,HttpStatus.OK); 
+	}
 }
