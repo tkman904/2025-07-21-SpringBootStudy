@@ -1,0 +1,28 @@
+#port => default 8080 => 보안 설정(AWS) : port 허용
+# 8080 / 1521 / 3306 (MySql, MariaDB)
+# MVC 설정
+server:
+  port: 8080
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC
+    username: root
+    password: happy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  ai:
+    google:
+      genai:
+        api-key: 
+        chat:
+          options:
+            model: gemini-2.5-flash
+
+mybatis:
+  type-aliases-package: com.sist.web.vo
+  mapper-locations: mybatis/mapper/*.xml
